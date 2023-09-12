@@ -1,7 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import React from 'react'
-
-
+import styles from './Header.style'
 
 const Header = ({title}: {title: string}) => {
     return (
@@ -13,12 +12,3 @@ const Header = ({title}: {title: string}) => {
 
 export default Header
 
-const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    text: {
-        fontSize: 25
-    }
-})
