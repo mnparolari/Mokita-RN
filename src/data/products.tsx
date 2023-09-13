@@ -5,7 +5,7 @@ export default [
         "band": "Iron Maiden",
         "detail":"Dimensiones del producto: 12 x 12.6 x 1 pulgadas; 1.35 Libras - Fabricante : Parlophon - Formato: Disco Vinilo - ASIN : B00LD22MPU - Número de discos : 1",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusantium iure, illum maxime est accusamus, quos voluptatem incidunt atque vel veritatis error aperiam pariatur assumenda nihil dolorem perferendis natus itaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate sequi fugit omnis magni nam architecto officiis, nesciunt ea impedit. Blanditiis dolorum dolorem impedit? Corporis aut fugiat, minima accusantium perferendis mollitia.",
-        "pictureUrl": "../img/maiden-1.jpg",
+        "pictureUrl": "../public/img/maiden-1.jpg",
         "price": 5500,
         "category": "destacados",
         "gender": "rock",

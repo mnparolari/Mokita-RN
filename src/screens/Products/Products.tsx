@@ -1,8 +1,8 @@
-import { FlatList, Text, View } from 'react-native'
+import { FlatList, ListRenderItem, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import styles from './Products.style'
 import allProducts from '../../data/products'
-import { Header, SearchInput } from '../../components'
+import { Card, Header, SearchInput } from '../../components'
 import { Product } from '../../models'
 
 const Products = ({ category }: { category: string }) => {
@@ -18,7 +18,18 @@ const Products = ({ category }: { category: string }) => {
             const productsFiltered = allProducts.filter(p => p.title.includes(keyword))
             setarrProducts(productsFiltered)
         }
-    }, [category, keyword])
+    }, [category, keyword]);
+
+    const renderProduct: ListRenderItem<Product> = ({ item }) => (
+        <View>
+            <Card style={styles.cardProduct}>
+                <Text>{item.title}</Text>
+                <Text>{item.band}</Text>
+                <View style={styles.divider} />
+                <Text>${item.price}</Text>
+            </Card>
+        </View>
+    )
 
 
     return (
@@ -26,7 +37,7 @@ const Products = ({ category }: { category: string }) => {
             <Header title={category.toUpperCase()} />
             <SearchInput onSearch={setkeyword} />
             <View style={styles.listContainer}>
-                <FlatList data={arrProducts} renderItem={({ item }) => <View><Text>{item.title}</Text></View>} keyExtractor={item => item.id.toString()} />
+                <FlatList data={arrProducts} renderItem={renderProduct} keyExtractor={item => item.id.toString()} />
             </View>
         </View>
     )

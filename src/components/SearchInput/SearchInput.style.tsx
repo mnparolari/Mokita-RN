@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: colors.secondary,
         width: '80%',
-        fontSize: 20
+        fontSize: 20, 
+        fontFamily: 'EncodeRegular'
     }
 })
 

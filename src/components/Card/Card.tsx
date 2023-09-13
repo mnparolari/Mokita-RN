@@ -4,8 +4,6 @@ import styles from './Card.style'
 
 const Card = ({ children, style }: { children: React.ReactNode, style?: ViewStyle }) => {
 
-    
-
     return (
         <View style={[styles.container, style]}>
             {children}

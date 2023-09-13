@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#fff',
-        fontWeight: '500'
+        fontWeight: '500',
+        fontFamily: 'EncodeMedium'
     }
 })
 
