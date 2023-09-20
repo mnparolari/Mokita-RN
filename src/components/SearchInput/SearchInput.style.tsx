@@ -7,7 +7,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         width: '90%',
-        paddingTop: 10
+        paddingTop: 10,
+        paddingLeft: 10,
+        paddingRight: 10
     },
     input: {
         color: '#fff',

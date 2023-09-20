@@ -11,7 +11,9 @@ const styles = StyleSheet.create({
     text: {
         color: '#fff',
         fontWeight: '500',
-        fontFamily: 'EncodeMedium'
+        fontFamily: 'EncodeMedium',
+        marginRight: 10, 
+        textAlign: 'center'
     }
 })
 

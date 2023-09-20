@@ -1,20 +1,15 @@
-import React, { useState } from 'react';
 import fonts from './src/global/fonts';
-import { Home, Products } from './src/screens'
 import { useFonts } from 'expo-font';
-
+import StackNavigator from './src/navigation/StackNavigator';
 
 export default function App() {
   const [EncodeFonts] = useFonts(fonts)
-  const [categorySelected, setCategorySelected] = useState('');
 
   if (!EncodeFonts) {
     return null
   }
 
-  return categorySelected ? (
-    <Products category={categorySelected} />
-  ) : (
-    <Home setCategorySelected={setCategorySelected}/>
+  return (
+    <StackNavigator/>
   )
 }

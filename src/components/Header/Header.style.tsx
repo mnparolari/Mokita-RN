@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { colors } from '../colors'
+import { colors } from '../../constants/colors'
 
 const styles = StyleSheet.create({
     container: {
@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 25,
-        fontFamily: 'EncodeLight'
+        fontFamily: 'EncodeLight',
+        textAlign: 'center'
     }
 })
 

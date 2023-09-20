@@ -1,13 +1,18 @@
-import { FlatList, ListRenderItem, Text, View } from 'react-native'
+import { FlatList, Text, TouchableOpacity, View, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import styles from './Products.style'
 import allProducts from '../../data/products'
 import { Card, Header, SearchInput } from '../../components'
-import { Product } from '../../models'
+import { Navigation, Product } from '../../models'
+import { Route } from '@react-navigation/native'
+import Icon from 'react-native-vector-icons/Feather';
 
-const Products = ({ category }: { category: string }) => {
+
+
+const Products = ({ navigation, route }: { navigation: Navigation, route: Route<string, { category?: string } | undefined> }) => {
     const [arrProducts, setarrProducts] = useState<Product[]>([]);
     const [keyword, setkeyword] = useState('');
+    const { category } = route.params || {};
 
     useEffect(() => {
         if (category) {
@@ -20,24 +25,23 @@ const Products = ({ category }: { category: string }) => {
         }
     }, [category, keyword]);
 
-    const renderProduct: ListRenderItem<Product> = ({ item }) => (
-        <View>
-            <Card style={styles.cardProduct}>
-                <Text>{item.title}</Text>
-                <Text>{item.band}</Text>
-                <View style={styles.divider} />
-                <Text>${item.price}</Text>
-            </Card>
-        </View>
-    )
-
 
     return (
         <View style={styles.container}>
-            <Header title={category.toUpperCase()} />
+            <View style={styles.containerIcon}>
+                <Icon name='arrow-left' size={30} onPress={() => navigation.goBack()} style={styles.backIcon} />
+                <Header title={category?.toUpperCase()} />
+            </View>
             <SearchInput onSearch={setkeyword} />
             <View style={styles.listContainer}>
-                <FlatList data={arrProducts} renderItem={renderProduct} keyExtractor={item => item.id.toString()} />
+                <FlatList data={arrProducts} numColumns={3} renderItem={({ item }) => (
+                    <TouchableOpacity style={styles.containerCard}onPress={() => navigation.navigate('Details', { product: item })}>
+                            <Card style={styles.card}>
+                                <Image style={styles.image} source={{ uri: item.images }}/>
+                                <Text>{item.title}</Text>
+                            </Card>
+                    </TouchableOpacity>)}
+                    keyExtractor={item => item.id.toString()} />
             </View>
         </View>
     )

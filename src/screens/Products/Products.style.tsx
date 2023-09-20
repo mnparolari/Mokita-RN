@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         backgroundColor: colors.background,
-        padding: 10
+        padding: 5
     },
     listContainer: {
         flex: 1,
@@ -31,6 +31,29 @@ const styles = StyleSheet.create({
         backgroundColor: 'gray',
         marginVertical: 10
     },
+    containerIcon: {
+        flexDirection: 'row', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        marginHorizontal: 15
+    },
+    backIcon: {
+        padding: 5
+    },
+    containerCard: {
+        justifyContent: 'center', 
+        alignItems: 'center', 
+    },
+    card: {
+        width: 100,
+        height: 100,
+        marginHorizontal: 10,
+        marginVertical: 30
+    }, 
+    image: {
+        width: 100,
+        height: 100,
+    }
 })
 
 export default styles
