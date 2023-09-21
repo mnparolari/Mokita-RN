@@ -7,8 +7,6 @@ import { Navigation, Product } from '../../models'
 import { Route } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/Feather';
 
-
-
 const Products = ({ navigation, route }: { navigation: Navigation, route: Route<string, { category?: string } | undefined> }) => {
     const [arrProducts, setarrProducts] = useState<Product[]>([]);
     const [keyword, setkeyword] = useState('');

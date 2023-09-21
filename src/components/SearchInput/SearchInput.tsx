@@ -18,7 +18,7 @@ const SearchInput = ({ onSearch }: { onSearch: string | any }) => {
 
     return (
         <View style={styles.container}>
-            <TextInput style={styles.input} value={value} onChangeText={setvalue} placeholder='Search product' placeholderTextColor='#fff'/>
+            <TextInput style={styles.input} value={value} onChangeText={setvalue} placeholder='Buscar producto' placeholderTextColor='#fff'/>
             <Pressable onPress={search}>
                 <AntDesign name='search1' size={25} color={colors.quaternary} />
             </Pressable>
