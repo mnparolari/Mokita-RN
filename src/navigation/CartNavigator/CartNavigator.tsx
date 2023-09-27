@@ -1,19 +1,19 @@
-import { Cart } from '../screens'
+import { Cart } from '../../screens'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-const Stack = createNativeStackNavigator()
+const StackCart = createNativeStackNavigator()
 
 function CartNavigator() {
     return (
-        <Stack.Navigator
-            initialRouteName="Home"
+        <StackCart.Navigator
+            initialRouteName="Cart"
             screenOptions={() => ({
                 headerShown: false,
 
             })}
         >
-            <Stack.Screen name="Cart" component={Cart} />
-        </Stack.Navigator>
+            <StackCart.Screen name="Cart" component={Cart} />
+        </StackCart.Navigator>
     )
 }
 

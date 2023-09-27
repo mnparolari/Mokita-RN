@@ -10,13 +10,14 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     image: {
-        flex: 1,
-        width: '90%',
-        height: '90%',
+        flex: 5,
+        width: '100%',
+        height: '100%',
         resizeMode: 'contain'
     },
     detail: {
         fontFamily: 'EncodeRegular',
+        marginHorizontal: 30,
         marginVertical: 5
     },
     description: {
@@ -31,12 +32,14 @@ const styles = StyleSheet.create({
     },
     containerIcon: {
         flexDirection: 'row', 
-        justifyContent: 'center', 
         alignItems: 'center', 
-        marginHorizontal: 30
+        justifyContent: 'center',
     },
     backIcon: {
-        padding: 5
+        backgroundColor: colors.quaternary,
+        color: '#fff',
+        marginRight: '90%',
+        marginVertical: 5
     }
 })
 

@@ -6,12 +6,9 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         backgroundColor: colors.background,
-    },
-    completedBuy: {
         justifyContent: 'center',
-        alignItems: 'center',
-        marginVertical: 35
-    }
+        alignItems: 'center'
+    },
 })
 
 export default styles

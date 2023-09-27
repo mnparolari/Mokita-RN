@@ -1,18 +1,23 @@
-import { FlatList, SafeAreaView, View, Button} from 'react-native'
+import { FlatList, SafeAreaView, View } from 'react-native'
 import React from 'react'
-import dataCategories from '../../data/dataCategories'
 import { CategoryItem } from './components'
 import { Header } from '../../components'
 import styles from './Home.style'
-import { Navigation } from '../../models'
+import { Navigation } from '../../models';
+import { useGetCategoriesQuery } from '../../services/shopApi'
 
 
 const Home = ({ navigation }: { navigation: Navigation }) => {
+
+    const { data, isLoading } = useGetCategoriesQuery()
+
     return (
         <SafeAreaView style={styles.container}>
-            <Header title='HOME' />
+            <Header title='LA CASA DEL VINILO' />
             <View>
-                <FlatList data={dataCategories} keyExtractor={category => category} renderItem={({ item }) => <CategoryItem category={item} navigation={navigation} />} />
+                {!isLoading && (
+                <FlatList data={data} keyExtractor={category => category} renderItem={({ item }) => <CategoryItem category={item} navigation={navigation} />} />
+                )}
             </View>
         </SafeAreaView>
     )

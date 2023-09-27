@@ -1,7 +1,7 @@
-import { Pressable, Text, TextInput, View } from 'react-native'
+import { Pressable, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 import styles from './SearchInput.style'
-import AntDesign from '@expo/vector-icons/AntDesign'
+import Feather from '@expo/vector-icons/Feather'
 import { colors } from '../../constants/colors'
 
 const SearchInput = ({ onSearch }: { onSearch: string | any }) => {
@@ -20,10 +20,10 @@ const SearchInput = ({ onSearch }: { onSearch: string | any }) => {
         <View style={styles.container}>
             <TextInput style={styles.input} value={value} onChangeText={setvalue} placeholder='Buscar producto' placeholderTextColor='#fff'/>
             <Pressable onPress={search}>
-                <AntDesign name='search1' size={25} color={colors.quaternary} />
+                <Feather name='search' size={30} color={colors.quaternary}/>
             </Pressable>
             <Pressable onPress={clearInput}>
-                <AntDesign name='closecircleo' size={25} color={colors.quaternary} />
+                <Feather name='delete' size={30} color={colors.quaternary} />
             </Pressable>
         </View>
     )

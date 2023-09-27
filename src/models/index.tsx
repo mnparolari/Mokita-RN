@@ -31,4 +31,8 @@ export interface ProductsProps {
     setProductSelected: (product: Product) => void;
 }
 
+export interface CounterProps {
+    stock: number | undefined;
+    initial: number | undefined;
+}
 
