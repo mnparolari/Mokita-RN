@@ -1,14 +1,15 @@
 import { StyleSheet } from 'react-native'
-import { colors } from '../../constants/colors'
+
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        width: '100%',
-        backgroundColor: colors.background,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
+    mapImage: {
+        width: 300,
+        height: 300
+    }
 })
 
 export default styles

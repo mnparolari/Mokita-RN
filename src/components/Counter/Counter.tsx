@@ -1,16 +1,24 @@
-import { Pressable, Text, View } from 'react-native'
+import { Pressable, SafeAreaView, Text, View } from 'react-native'
 import React from 'react'
 import Feather from '@expo/vector-icons/Feather'
 import { colors } from '../../constants/colors';
 import { CounterProps } from '../../models';
 import styles from './Counter.style';
 import useCounter from '../../hooks/useCounter';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../features/Cart/CartSlice';
 
 const Counter: React.FC<CounterProps> = (props) => {
     const { counterValue, block, decrement, increment } = useCounter(props);
+    const dispatch = useDispatch();
+    const {product} = props;
+    
+    const handleAddToCart = () => {
+        dispatch(addItem({...product, quantity: counterValue}))
+    }
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.counterContainer}>
                 <Pressable style={({ pressed }) => [
                     styles.counterButtons,
@@ -36,12 +44,12 @@ const Counter: React.FC<CounterProps> = (props) => {
                 </Pressable>
             </View>
             <View style={styles.btnContainer}>
-                <Pressable style={styles.btnConfirm} android_ripple={{ color: colors.primary, borderless: false }}>
+                <Pressable style={styles.btnConfirm} android_ripple={{ color: colors.primary, borderless: false }} onPress={handleAddToCart}>
                     <Feather size={24} name='shopping-cart' color={'#fff'} />
                     <Text style={styles.confirm}>Agregar</Text>
                 </Pressable>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

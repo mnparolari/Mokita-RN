@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
     btnConfirm: {
         backgroundColor: colors.quaternary,
         width: '50%',
-        height: 35,
+        height: 50,
+        borderRadius: 10,
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',

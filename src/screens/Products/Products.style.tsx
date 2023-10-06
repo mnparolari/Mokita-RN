@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.quaternary,
         color: '#fff',
         marginTop: 10,
-        marginRight: 15
+        marginRight: 15,
+        borderRadius: 5
     },
     cardContainer: {
         justifyContent: 'center', 

@@ -9,7 +9,8 @@ export interface Product {
     category: string,
     gender?: string,
     type?: string,
-    stock: number
+    stock: number,
+    quantity: number
 }
 
 export interface Navigation {
@@ -34,5 +35,30 @@ export interface ProductsProps {
 export interface CounterProps {
     stock: number | undefined;
     initial: number | undefined;
+    product: ProductCart | undefined
 }
 
+export interface ProductCart {
+    id: number,
+    title: string,
+    band: string,
+    detail: string,
+    description: string,
+    images: string,
+    price: number,
+    category: string,
+    stock: number
+    quantity: number;
+}
+
+export type CartState = {
+    user: string;
+    updatedAt: string;
+    items: ProductCart[];
+    total: number
+}
+
+export interface CartItemsProps {
+    productCart: ProductCart,
+    onDelete: (productCart: ProductCart) => void
+}

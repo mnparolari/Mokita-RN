@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../store'
 import { useGetProductsByCategoryQuery } from '../../services/shopApi'
 
-
 const Products = ({ navigation }: { navigation: Navigation }) => {
     const category = useSelector((state: RootState) => state.shop.categorySelected);
     const [keyword, setkeyword] = useState('');

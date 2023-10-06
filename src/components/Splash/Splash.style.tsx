@@ -4,11 +4,15 @@ import { colors } from '../../constants/colors'
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: '100%',
-        backgroundColor: colors.background,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: colors.quaternary,
     },
-})
+    image: {
+        width: 300,
+        height: 75,
+        marginTop: 25
+    }
+});
 
 export default styles

@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.quaternary,
         color: '#fff',
         marginRight: '90%',
-        marginVertical: 5
+        marginVertical: 5,
+        borderRadius: 5
     }
 })
 

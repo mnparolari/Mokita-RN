@@ -1,32 +1,57 @@
-import { FlatList, Pressable, Text, View } from 'react-native'
+import { FlatList, Pressable, Text, View, SafeAreaView } from 'react-native'
 import React from 'react'
 import styles from './Cart.style'
-import cart from '../../data/cart'
 import CartItem from './components/CartItem/CartItem'
-import { Product } from '../../models'
+import { Navigation, ProductCart } from '../../models'
 import { Header } from '../../components'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../store'
+import { removeItem } from '../../features/Cart/CartSlice'
+import { usePostOrderMutation } from '../../services/shopApi'
+import Feather from '@expo/vector-icons/Feather'
 
-const Cart = () => {
+const Cart = ({ navigation }: { navigation: Navigation }) => {
+    const cart = useSelector((state: RootState) => state.cart.items);
+    const total = useSelector((state: RootState) => state.cart.total);
+    const dispatch = useDispatch();
+    const [triggerPost] = usePostOrderMutation()
 
-    const renderItem = ({ item }: { item: Product }) => (
-        <CartItem productCart={item} />
+    const handleDeleteToCart = (product: ProductCart) => {
+        dispatch(removeItem(product))
+    }
+
+    const renderItem = ({ item }: { item: ProductCart }) => (
+        <CartItem productCart={item} onDelete={handleDeleteToCart} />
     );
 
+    const confirmBuy = () => {
+        triggerPost({ total, cart, user: "UserLogged" })
+    }
+
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Header title='CARRITO DE COMPRAS' />
-            <View>
-                <FlatList data={cart} keyExtractor={item => item.id.toString()} renderItem={renderItem} />
-            </View>
-            <View style={styles.completedBuy}>
-                <Pressable>
-                    <Text>Confirmar</Text>
+            {cart.length === 0 ? (
+                <View style={styles.notProductContainer}>
+                    <Feather size={64} name='alert-triangle' color='#e2382f' />
+                    <Text style={styles.notProductTitle}>No tenes productos seleccionados</Text>
+                </View>
+            ) : (
+                <View>
                     <View>
-                        <Text>{`Total: $5000`}</Text>
+                        <FlatList data={cart} keyExtractor={item => item.id.toString()} renderItem={renderItem} />
                     </View>
-                </Pressable>
-            </View>
-        </View>
+                    <View style={styles.completedBuy}>
+                        <Pressable onPress={confirmBuy}>
+                            <Text>Confirmar</Text>
+                            <View>
+                                <Text>{`Total: $${total}`}</Text>
+                            </View>
+                        </Pressable>
+                    </View>
+                </View>
+            )}
+        </SafeAreaView>
     )
 }
 

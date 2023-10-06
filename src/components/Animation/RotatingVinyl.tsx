@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
-import { Animated, Easing, StyleSheet, View } from 'react-native';
 import { colors } from '../../constants/colors';
+import React, { Component } from 'react';
+import { View, Animated, Easing, Image, StyleSheet, ViewStyle, ImageStyle } from 'react-native';
+
+interface RotatingVinylProps {
+    containerStyle?: ViewStyle;
+    imageStyle?: ImageStyle;
+    imageSource: string;
+}
 
 interface State {
     spinValue: Animated.Value;
 }
 
-class RotatingVinyl extends Component<{}, State> {
-    constructor(props: {}) {
+class RotatingVinyl extends Component<RotatingVinylProps, State> {
+    constructor(props: RotatingVinylProps) {
         super(props);
         this.state = {
             spinValue: new Animated.Value(0),
@@ -29,21 +35,24 @@ class RotatingVinyl extends Component<{}, State> {
     }
 
     render() {
+        const { containerStyle, imageStyle, imageSource } = this.props;
+
         const spin = this.state.spinValue.interpolate({
             inputRange: [0, 1],
             outputRange: ['0deg', '360deg'],
         });
 
         return (
-            <View style={styles.container}>
+            <View style={[styles.container, containerStyle]}>
                 <Animated.Image
                     style={[
                         styles.image,
                         {
                             transform: [{ rotate: spin }],
                         },
+                        imageStyle,
                     ]}
-                    source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/npm-la-casa-del-vinilo.appspot.com/o/rpmLogo.png?alt=media&token=a4e5ad4e-9f9f-4334-821d-756ce415f42c' }} // Reemplaza con la ruta de tu imagen
+                    source={{ uri: imageSource }}
                 />
             </View>
         );
@@ -52,16 +61,12 @@ class RotatingVinyl extends Component<{}, State> {
 
 const styles = StyleSheet.create({
     container: {
-        width: 900,
-        backgroundColor: colors.quaternary,
-        justifyContent: 'center',
-        alignItems: 'center', 
-        padding: 10,
     },
     image: {
-        width: 150,
-        height: 150,
     },
 });
 
 export default RotatingVinyl;
+
+
+

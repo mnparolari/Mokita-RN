@@ -1,27 +1,24 @@
 import { StyleSheet } from 'react-native'
 import { colors } from '../../constants/colors'
 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor: colors.background,
+        padding: 35,
+        gap: 20,
     },
-    completedBuy: {
+    locationContainer: {
+        width: 200,
+        height: 200,
+        borderWidth: 2,
+        padding: 10,
+        borderColor: colors.secondary,
         justifyContent: 'center',
         alignItems: 'center',
-        marginVertical: 35
-    },
-    notProductContainer: {
-        marginTop: 30,
-        justifyContent: 'center',
-        alignItems: 'center',
-
-    },
-    notProductTitle: {
-        fontSize: 21,
-        color: '#e2382f',
-        marginTop: 10
     }
 })
 
