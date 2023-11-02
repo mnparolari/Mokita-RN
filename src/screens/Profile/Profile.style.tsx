@@ -12,31 +12,73 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     image: {
-        width: 250,
-        height: 250
+        width: 200,
+        height: 200,
+        borderRadius: 150
     },
     cameraButton: {
         backgroundColor: colors.quaternary,
-        width: 150,
-        height: 30,
+        width: 50,
+        height: 40,
         marginTop: 15,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 10,
-    },
-    textButton: {
-        textAlign: 'center',
-        color: '#fff'
+        marginHorizontal: 10
     },
     confirmButton: {
         backgroundColor: colors.quaternary,
-        width: 200,
-        height: 50,
+        width: 50,
+        height: 40,
         marginTop: 15,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 10,
-    }
+        marginHorizontal: 10
+    },
+    addresButton: {
+        backgroundColor: colors.quaternary,
+        width: 70,
+        height: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+    },
+    addresContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 25,
+    },
+    personalDataContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    dataContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: '#000',
+        borderRadius: 5,
+        marginTop: 55,
+        marginHorizontal: 50,
+        paddingVertical: 10,
+    },
+    buttonsCameraContainer: {
+        flexDirection: 'row'
+    },
+    logOutContainer: {
+        alignItems: 'flex-end',
+    },
+    logOutIcon: {
+        backgroundColor: colors.quaternary,
+        width: 40,
+        height: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+        marginHorizontal: 10
+    },
+    
 })
 
 export default styles

@@ -51,8 +51,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         color: '#fff'
     },
-    confirm: {
+    btnDisabled: {
+        backgroundColor: 'gray',
+        width: '50%',
+        height: 50,
+        borderRadius: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
         color: '#fff'
+    },
+    confirm: {
+        color: '#fff',
+        fontFamily: 'EncodeMedium', 
+        fontSize: 15
     },
     disabledButton: {
         backgroundColor: 'gray'

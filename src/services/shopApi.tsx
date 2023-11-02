@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { baseUrl } from '../firebase';
-import { Product } from '../models';
+import { OrdersCart, Product } from '../models';
+
+type shopApi = ReturnType<typeof createApi>;
 
 export const shopApi = createApi({
     reducerPath: 'shopApi' as 'api',
@@ -14,6 +16,9 @@ export const shopApi = createApi({
         }),
         getProductsByCategory: builder.query<Product[], string>({
             query: category => `products.json?orderBy="category"&equalTo="${category}"`,
+        }),
+        getOrders: builder.query<OrdersCart[], string>({
+            query: userOrder => `orders.json?orderBy="user"&equalTo="${userOrder}"`,
         }),
         postOrder: builder.mutation({
             query: ({ ...order }) => ({
@@ -41,6 +46,7 @@ export const {
     useGetCategoriesQuery,
     useGetProductsQuery,
     useGetProductsByCategoryQuery,
+    useGetOrdersQuery,
     usePostOrderMutation,
     useGetProfileImageQuery,
     usePostProfileImageMutation

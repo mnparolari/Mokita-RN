@@ -1,5 +1,5 @@
-import { Orders } from '../../screens'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { Orders } from '../../screens';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const StackOrders = createNativeStackNavigator()
 

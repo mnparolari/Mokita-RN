@@ -3,10 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     user: null,
     token: null,
-    name: null,
-    surname: null,
     localId: null,
-    imageCamera: null
+    imageCamera: null,
 }
 
 export const authSlice = createSlice({
@@ -14,23 +12,20 @@ export const authSlice = createSlice({
     initialState,
     reducers: {
         setUser: (state, action) => {
+            const { email, idToken, localId } = action.payload;
             return {
                 ...state,
-                user: action.payload.data.email,
-                token: action.payload.data.idToken,
-                localId: action.payload.data.localId,
-                name: action.payload.originalArgs.name,
-                surname: action.payload.originalArgs.surname
+                user: email,
+                token: idToken,
+                localId: localId,
             }
         },
         clearUser: () => {
             return {
                 user: null,
                 token: null,
-                name: null,
-                surname: null,
                 localId: null,
-                imageCamera: null
+                imageCamera: null,
             }
         },
         setCameraImage: (state, action) => {

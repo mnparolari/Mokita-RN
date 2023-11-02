@@ -1,9 +1,9 @@
-import { Text, View, Image, SafeAreaView } from 'react-native'
-import React from 'react'
-import { Header, Counter } from '../../components'
-import styles from './Details.style'
-import { Navigation, ProductCart } from '../../models'
-import { Route } from '@react-navigation/native'
+import { Text, View, Image, SafeAreaView } from 'react-native';
+import React from 'react';
+import { Header, Counter } from '../../components';
+import styles from './Details.style';
+import { Navigation, ProductCart } from '../../models';
+import { Route } from '@react-navigation/native';
 import Feather from '@expo/vector-icons/Feather';
 
 

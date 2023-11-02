@@ -1,22 +1,26 @@
-import { Alert, Image, Pressable, Text, View } from 'react-native'
-import React from 'react'
-import styles from './Profile.style'
-import { Header } from '../../components'
-import * as ImagePicker from 'expo-image-picker'
-import { useDispatch, useSelector } from 'react-redux'
-import { setCameraImage } from '../../features/Auth/AuthSlice'
-import { RootState } from '../../store'
-import { usePostProfileImageMutation } from '../../services/shopApi'
-import { Navigation } from '../../models'
+import { Image, Pressable, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import styles from './Profile.style';
+import { Header } from '../../components';
+import * as ImagePicker from 'expo-image-picker';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearUser, setCameraImage } from '../../features/Auth/AuthSlice';
+import { RootState } from '../../store';
+import { usePostProfileImageMutation } from '../../services/shopApi';
+import { Navigation } from '../../models';
+import Feather from '@expo/vector-icons/Feather';
+import useModal from '../../hooks/useModal';
+import { MyModal } from '../../components';
+import { deleteSession } from '../../db';
+import { clearUserCart } from '../../features/Cart/CartSlice';
 
-const Profile = ({navigation}: {navigation: Navigation}) => {
+const Profile = ({ navigation }: { navigation: Navigation }) => {
     const image = useSelector((state: RootState) => state.auth.imageCamera);
     const { localId } = useSelector((state: RootState) => state.auth);
-    const [triggerSaveProfileImage, result] = usePostProfileImageMutation()
-    const name = useSelector((state: RootState) => state.auth.name);
-    const surname = useSelector((state: RootState) => state.auth.surname);
-    const user = useSelector((state: RootState) => state.auth.user);
+    const [triggerSaveProfileImage, result] = usePostProfileImageMutation();
     const dispatch = useDispatch();
+    const { modalVisible, toggleModal } = useModal();
+    const [showConfirmImage, setShowConfirmImage] = useState(false)
 
     const verifyCameraPermissions = async () => {
         const { granted } = await ImagePicker.requestCameraPermissionsAsync()
@@ -37,8 +41,8 @@ const Profile = ({navigation}: {navigation: Navigation}) => {
                 quality: 0.4,
             })
             if (!result.canceled) {
-                console.log(result.assets)
                 dispatch(setCameraImage(`data:image/jpeg;base64,${result.assets[0].base64}`))
+                setShowConfirmImage(true)
             }
         }
     }
@@ -46,35 +50,58 @@ const Profile = ({navigation}: {navigation: Navigation}) => {
     const confirmImage = () => {
         triggerSaveProfileImage({ image, localId })
         if (result.isSuccess) {
-            Alert.alert('Imagen cargada correctamente');
+            toggleModal();
+            setShowConfirmImage(false)
         }
-        console.log(result)
+    }
+
+    const logout = () => {
+        dispatch(clearUser());
+        dispatch(clearUserCart())
+        deleteSession();
     }
 
     return (
         <View style={styles.container}>
-            <Header title='PERFIL' />
+            <Header title='PERFIL DE USUARIO' />
+            <View style={styles.logOutContainer}>
+                <Pressable style={styles.logOutIcon} onPress={logout}>
+                    <Feather size={25} name='log-out' color='#fff' />
+                </Pressable>
+            </View>
             <View style={styles.imageContainer}>
                 {image ? (
                     <Image source={{ uri: image }} resizeMode='cover' style={styles.image} />
                 ) : (
                     <Image source={{ uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png' }} resizeMode='cover' style={styles.image} />
                 )}
-                <Pressable style={styles.cameraButton} onPress={pickImage}>
-                    <Text style={styles.textButton}>Tomar foto de perfil</Text>
-                </Pressable>
-                <Pressable style={styles.confirmButton} onPress={confirmImage}>
-                    <Text style={styles.textButton}>Confirmar</Text>
-                </Pressable>
-                <Pressable style={styles.confirmButton} onPress={() => navigation.navigate('Location')}>
-                    <Text style={styles.textButton}>Mis direcciones</Text>
-                </Pressable>
+                <View style={styles.buttonsCameraContainer}>
+                    <Pressable style={styles.cameraButton} onPress={pickImage}>
+                        <Feather size={25} name='camera' color='#fff' />
+                    </Pressable>
+                    {showConfirmImage &&
+                        <Pressable style={styles.confirmButton} onPress={confirmImage}>
+                            <Feather size={25} name='save' color='#fff' />
+                        </Pressable>
+                    }
+                </View>
             </View>
-            <View>
-                <Text>Nombre: {name}</Text>
-                <Text>Apellido: {surname}</Text>
-                <Text>Email: {user}</Text>
+            <View style={styles.dataContainer}>
+                <View style={styles.personalDataContainer}>
+                    <Text style={{ fontFamily: 'EncodeRegular', fontSize: 17, marginHorizontal: 15, textAlign: 'center' }}>Obtené y confirmá tu ubicación para Envíos a domicilio:</Text>
+                </View>
+                <View style={styles.addresContainer}>
+                    <Pressable style={styles.addresButton} onPress={() => navigation.navigate('Location')}>
+                        <Feather size={25} name='map-pin' color='#fff' />
+                    </Pressable>
+                </View>
             </View>
+            <MyModal
+                title="Imagen cargada correctamente"
+                message="Esta será tu foto de perfil. Podés cambiarla cuando quieras presionando el ícono de la cámara."
+                modalVisible={modalVisible}
+                setModalVisible={toggleModal}
+            />
         </View>
     )
 }

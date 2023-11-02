@@ -2,11 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 import { CartState } from "../../models";
 import { Alert } from 'react-native';
 
+
 const initialState: CartState = {
-    user: "UserLogged",
+    id: "",
+    user: "",
     updatedAt: new Date().toLocaleString(),
     items: [],
-    total: 0
+    total: 0,
 }
 
 export const cartSlice = createSlice({
@@ -16,7 +18,6 @@ export const cartSlice = createSlice({
         addItem: (state, action) => {
             const productToAdd = action.payload;
             const existingProduct = state.items.find(item => item.id === productToAdd.id);
-
             if (existingProduct) {
                 Alert.alert('Producto en el carrito', 'Este producto ya ha sido agregado al carrito.');
             } else {
@@ -34,10 +35,30 @@ export const cartSlice = createSlice({
             );
             const total = state.items.reduce((acc, current) => acc + current.price * current.quantity, 0);
             state.total = total;
-        }
+        },
+        removeAll: (state) => {
+            return {
+                ...state,
+                items: [],
+                total: 0, 
+                updatedAt: new Date().toLocaleString(),
+            };
+        },
+        addUser: (state, action) => {
+            state.user = action.payload
+        },
+        clearUserCart: () => {
+            return {
+                id: "",
+                user: "",
+                updatedAt: "",
+                items: [],
+                total: 0,
+            }
+        },
     }
 })
 
-export const { addItem, removeItem } = cartSlice.actions
+export const { addItem, removeItem, addUser, removeAll, clearUserCart } = cartSlice.actions
 
 export default cartSlice.reducer

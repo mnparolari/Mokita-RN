@@ -1,6 +1,8 @@
 import { apiKey, authUrl } from "../firebase";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 
+type authApi = ReturnType<typeof createApi>;
+
 export const authApi = createApi({
     reducerPath: 'authApi',
     baseQuery: fetchBaseQuery({

@@ -9,6 +9,16 @@ const styles = StyleSheet.create({
     mapImage: {
         width: 300,
         height: 300
+    },
+    directionContainer: {
+        padding: 15
+    },
+    direction: {
+        fontWeight: '600',
+        textAlign: 'center',
+        paddingHorizontal: 75,
+        fontFamily: 'EncodeRegular', 
+        fontSize: 17
     }
 })
 

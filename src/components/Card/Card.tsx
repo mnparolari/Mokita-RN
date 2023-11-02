@@ -1,6 +1,6 @@
-import { View, ViewStyle } from 'react-native'
-import React from 'react'
-import styles from './Card.style'
+import { View, ViewStyle } from 'react-native';
+import React from 'react';
+import styles from './Card.style';
 
 const Card = ({ children, style }: { children: React.ReactNode, style?: ViewStyle }) => {
 

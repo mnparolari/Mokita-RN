@@ -10,9 +10,11 @@ const styles = StyleSheet.create({
         padding: 40
     },
     text: {
-        fontSize: 25,
+        fontSize: 21,
         fontFamily: 'EncodeLight',
-        textAlign: 'center'
+        textAlign: 'center', 
+        fontWeight: '700',
+        color: colors.quaternary
     }
 })
 

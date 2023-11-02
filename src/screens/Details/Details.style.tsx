@@ -7,22 +7,19 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: colors.background,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingHorizontal: 5
     },
     image: {
-        flex: 5,
+        flex: 1,
         width: '100%',
         height: '100%',
-        resizeMode: 'contain'
+        resizeMode: 'contain',
+        borderRadius: 10,
     },
     detail: {
         fontFamily: 'EncodeRegular',
         marginHorizontal: 30,
-        marginVertical: 5
-    },
-    description: {
-        fontSize: 25,
-        fontFamily: 'EncodeRegular',
         marginVertical: 5
     },
     price: {

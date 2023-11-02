@@ -1,19 +1,23 @@
 import { StyleSheet } from 'react-native'
+import { colors } from '../../../../constants/colors'
 
 const styles = StyleSheet.create({
     cardContainer: {
-        marginHorizontal: 30,
-        marginVertical: 10,
         padding: 10,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        borderRadius: 10
     },
     text: {
-        color: '#fff',
+        position: 'absolute',
+        left: 30,
+        bottom: 70,
+        color: colors.secondary,
         fontWeight: '500',
         fontFamily: 'EncodeMedium',
-        marginRight: 10, 
-        textAlign: 'center'
+        textAlign: 'center',
+        fontSize: 21,
+        letterSpacing: 2
     }
 })
 

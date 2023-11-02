@@ -1,10 +1,11 @@
-import { Animated, Easing, Image, Text, View } from 'react-native'
-import React from 'react'
-import styles from './Header.style'
-import RotatingVinyl from '../Animation/RotatingVinyl'
-import { colors } from '../../constants/colors'
+import { Text, View } from 'react-native';
+import React from 'react';
+import styles from './Header.style';
+import RotatingVinyl from '../Animation/RotatingVinyl';
+import { colors } from '../../constants/colors';
 
 const Header = ({ title }: { title: string | undefined }) => {
+
     return (
         <View style={styles.container}>
             <RotatingVinyl containerStyle={{
@@ -20,7 +21,7 @@ const Header = ({ title }: { title: string | undefined }) => {
                 }}
                 imageSource='https://firebasestorage.googleapis.com/v0/b/npm-la-casa-del-vinilo.appspot.com/o/rpmLogo.png?alt=media&token=a4e5ad4e-9f9f-4334-821d-756ce415f42c' />
             <Text style={styles.text}>{title}</Text>
-        </View>
+        </View >
     )
 }
 

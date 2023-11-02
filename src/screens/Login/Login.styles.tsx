@@ -22,25 +22,32 @@ const styles = StyleSheet.create({
         fontFamily: 'EncodeLight'
     },
     input: {
-        width: '100%',
-        height: 30,
         marginVertical: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
+        backgroundColor: '#fff',
+        borderRadius: 8,
+        padding: 10,
+        width: 230,
+        height: 17,
+        fontSize: 15, 
+        fontFamily: 'EncodeRegular',
+        textAlign: 'center'
     },
     button: {
         backgroundColor: colors.secondary,
         width: '100%',
         height: 50,
         borderRadius: 10,
-        marginBottom: 10,
+        marginBottom: 15,
+        marginTop: 15,
         justifyContent: 'center',
         alignItems: 'center',
     },
     title: {
         textAlign: 'center',
         marginTop: 45,
-        color: '#fff'
+        color: '#fff',
+        fontFamily: 'EncodeRegular',
+        fontSize: 15
     },
     buttonsContainer: {
         justifyContent: 'center',
@@ -49,7 +56,22 @@ const styles = StyleSheet.create({
     imageLogo: {
         width: 300,
         height: 75
-    }
+    },
+    passwordContainer: {
+        flexDirection: 'row', 
+        alignItems: 'center'
+    },
+    inputPassword: {
+        marginVertical: 15,
+        backgroundColor: '#fff',
+        borderRadius: 8,
+        padding: 10,
+        width: 185,
+        height: 17,
+        fontSize: 15, 
+        fontFamily: 'EncodeRegular',
+        textAlign: 'center'
+    },
 })
 
 export default styles

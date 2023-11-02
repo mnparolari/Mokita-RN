@@ -5,21 +5,32 @@ import { colors } from '../../constants/colors'
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        width: '100%',
         backgroundColor: colors.background,
-        padding: 35,
         gap: 20,
     },
     locationContainer: {
-        width: 200,
-        height: 200,
-        borderWidth: 2,
-        padding: 10,
-        borderColor: colors.secondary,
+        alignItems: 'center',
+    },
+    iconContainer: { 
+        justifyContent: 'center',
+        alignItems: 'flex-start'
+    },
+    backIcon: {
+        backgroundColor: colors.quaternary,
+        color: '#fff',
+        marginTop: 10,
+        marginHorizontal: 10,
+        borderRadius: 5
+    },
+    confirmButton: {
+        backgroundColor: colors.quaternary,
+        width: 70,
+        height: 40,
         justifyContent: 'center',
         alignItems: 'center',
-    }
+        borderRadius: 10,
+    },
 })
 
 export default styles

@@ -6,22 +6,40 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         backgroundColor: colors.background,
+        fontFamily: 'EncodeRegular'
     },
     completedBuy: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginVertical: 35
+        marginVertical: 25
     },
-    notProductContainer: {
-        marginTop: 30,
+    buyButton: {
+        width: 100,
+        height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-
+        backgroundColor: colors.quaternary,
+        padding: 10,
+        borderRadius: 5,
+        marginVertical: 10
+    },
+    notProductContainer: {
+        width: '100%',
+        marginTop: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     notProductTitle: {
         fontSize: 21,
-        color: '#e2382f',
-        marginTop: 10
+        color: '#000',
+        marginTop: 30
+    },
+    totalContainer: {
+        marginVertical: 10
+    },
+    total: {
+        fontSize: 25,
+        fontFamily: 'EncodeRegular'
     }
 })
 

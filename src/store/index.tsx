@@ -6,7 +6,6 @@ import CartSlice from '../features/Cart/CartSlice';
 import { authApi } from '../services/authApi';
 import AuthSlice from '../features/Auth/AuthSlice';
 
-
 const store = configureStore({
     reducer: {
         shop: ShopSlice,

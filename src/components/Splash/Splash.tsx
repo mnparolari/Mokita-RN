@@ -1,8 +1,7 @@
-import { Image, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import styles from './Splash.style'
+import { Image, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import styles from './Splash.style';
 import RotatingVinyl from '../Animation/RotatingVinyl';
-import { colors } from '../../constants/colors';
 
 
 const Splash = () => {

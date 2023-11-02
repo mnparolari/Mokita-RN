@@ -1,4 +1,3 @@
-import { colors } from '../../constants/colors';
 import React, { Component } from 'react';
 import { View, Animated, Easing, Image, StyleSheet, ViewStyle, ImageStyle } from 'react-native';
 

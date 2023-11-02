@@ -4,7 +4,7 @@ import { colors } from '../../constants/colors'
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         alignItems: 'center',
         width: '90%',
         paddingTop: 10,
@@ -12,15 +12,21 @@ const styles = StyleSheet.create({
         paddingRight: 10
     },
     input: {
-        color: '#fff',
-        backgroundColor: colors.secondary,
+        backgroundColor: '#fff',
         borderRadius: 8,
         padding: 10,
-        borderWidth: 1,
-        borderColor: colors.secondary,
-        width: '70%',
-        fontSize: 20, 
-        fontFamily: 'EncodeRegular'
+        width: 180,
+        height: 40,
+        fontSize: 15, 
+        fontFamily: 'EncodeRegular',
+        textAlign: 'center'
+    },
+    search: {
+        marginHorizontal: 25
+    },
+    clear: {
+        marginLeft: 5,
+        marginRight: 10
     }
 })
 

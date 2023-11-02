@@ -1,5 +1,5 @@
-import { Cart } from '../../screens'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { Cart } from '../../screens';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const StackCart = createNativeStackNavigator()
 
