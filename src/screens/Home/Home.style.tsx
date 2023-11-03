@@ -7,6 +7,9 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: colors.background,
     },
+    categoryContainer: {
+        paddingTop: 40
+    },
     socialContainer: {
         flex: 1,
         justifyContent: 'center',

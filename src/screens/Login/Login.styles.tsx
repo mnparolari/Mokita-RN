@@ -9,7 +9,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: colors.background,
-        padding: 35,
+        paddingLeft: 35,
+        paddingRight: 35,
+        paddingBottom: 35
     },
     loginContainer: {
         width: '100%',

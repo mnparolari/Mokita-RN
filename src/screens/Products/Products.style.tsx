@@ -6,25 +6,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: '100%',
-        height: '100%',
         backgroundColor: colors.background,
-        padding: 5,
     },
     listContainer: {
-        flex: 1,
         fontFamily: 'EncodeLight',
-        padding: 15,
+        paddingLeft: 15,
+        paddingRight: 15,
+        paddingBottom: 15,
+        paddingTop: 15,
         textAlign: 'center',
-    },
-    divider: {
-        height: 2,
-        backgroundColor: 'gray',
-        marginVertical: 10
     },
     iconContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingTop: 40
     },
     backIcon: {
         backgroundColor: colors.quaternary,
@@ -39,7 +35,7 @@ const styles = StyleSheet.create({
     },
     card: {
         width: 320,
-        height: 320,
+        height: 400,
         marginHorizontal: 10,
         marginVertical: 10,
         justifyContent: 'center', 

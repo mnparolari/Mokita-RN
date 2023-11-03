@@ -6,18 +6,22 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         backgroundColor: colors.background,
-        fontFamily: 'EncodeRegular'
+        fontFamily: 'EncodeRegular',
     },
     notOrdersContainer: {
         width: '100%',
         marginTop: 50,
         justifyContent: 'center',
         alignItems: 'center',
+        paddingTop: 40
     },
     notOrdersTitle: {
         fontSize: 21,
         color: '#000',
         marginTop: 30
+    },
+    ordersContainer: {
+        paddingTop: 40
     },
     accordionContainer: {
         backgroundColor: '#DED7B3ff', 
@@ -26,7 +30,7 @@ const styles = StyleSheet.create({
         borderTopEndRadius: 5, 
         marginVertical: 5, 
         borderColor: '#2F7864ff', 
-        borderWidth: 1
+        borderWidth: 1,
     },
     accordionTextBold: {
         fontWeight: 'bold'

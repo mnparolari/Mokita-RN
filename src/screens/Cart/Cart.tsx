@@ -55,7 +55,7 @@ const Cart = ({ navigation }: { navigation: Navigation }) => {
                     <Text style={styles.notProductTitle}>¡No tenes productos seleccionados!</Text>
                 </View>
             ) : (
-                <View style={{ flex: 1 }}>
+                <View style={{ flex: 1, paddingTop: 40 }}>
                     <View style={{ flex: 1 }}>
                         {isLoading ? (
                             <Loading />

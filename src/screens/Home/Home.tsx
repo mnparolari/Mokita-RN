@@ -72,7 +72,7 @@ const Home = ({ navigation }: { navigation: Navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <Header title={`BIENVENIDO/A ${user ? (user as string).toUpperCase() : 'Invitado'}`} />
-            <View>
+            <View style={styles.categoryContainer}>
                 {isLoading ? (
                     <Loading />
                 ) : (

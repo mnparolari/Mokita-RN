@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
     },
     imageContainer: {
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingTop: 20
     },
     image: {
         width: 200,
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
     },
     logOutContainer: {
         alignItems: 'flex-end',
+        paddingTop: 20
     },
     logOutIcon: {
         backgroundColor: colors.quaternary,

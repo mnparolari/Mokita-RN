@@ -99,6 +99,7 @@ const Orders = () => {
                 <Header title="ÓRDENES DE COMPRA" />
                 {ordersArray.length > 0 ? (
                     <FlatList
+                        style={styles.ordersContainer}
                         data={ordersArray}
                         renderItem={renderItem}
                         keyExtractor={(item) => (item.id ? item.id.toString() : '')}

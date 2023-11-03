@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         backgroundColor: colors.background,
-        fontFamily: 'EncodeRegular'
+        fontFamily: 'EncodeRegular',
     },
     completedBuy: {
         justifyContent: 'center',
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         marginTop: 50,
         justifyContent: 'center',
         alignItems: 'center',
+        paddingTop: 40
     },
     notProductTitle: {
         fontSize: 21,

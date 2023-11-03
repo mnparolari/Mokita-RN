@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: colors.background,
         width: '100%',
-        padding: 40
+        // padding: 40
     },
     text: {
         fontSize: 21,
